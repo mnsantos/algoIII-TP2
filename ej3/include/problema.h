@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
+#include <queue> 
 #include <utility>
 #include <fstream>
 #include <cassert>
@@ -32,7 +32,7 @@ struct nodo{
 struct Problema{
 	int _cantFabricas;
 	vector<nodo> _todos;
-	list<nodo*> _proximos;
+	queue<nodo*> _proximos;
 	
 	vector< pair<int, int> > _rutas_finales;
 	int _costo_final;
