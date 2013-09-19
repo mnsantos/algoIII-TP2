@@ -75,10 +75,11 @@ void Problema::resolver(){
 			for(unsigned int j=0; j<(actual->vecinos).size();j++){ //recorro sus vecinos
 				if(actual->vecinos[j].first > _cantFabricas){ //si el vecino es cliente
 				
-					if((_todos[(actual->vecinos[j]).first].precio == 0) || ((actual->vecinos[j]).second < _todos[(actual->vecinos[j]).first].precio)){ //si no existia ningun camino o si el nuevo camino es mejor q el anterior (vecinos es [(id, valor)])
+					if((_todos[(actual->vecinos[j]).first].precio == 0) || ((actual->vecinos[j]).second < _todos[(actual->vecinos[j]).first].precio && _todos[(actual->vecinos[j]).first].id != actual->arista)){ //si no existia ningun camino o si el nuevo camino es mejor q el anterior (vecinos es [(id, valor)]) y si el que quiero linkear no es el padre del q estoy mirando (en ese caso ya esta linkeado)
 						_todos[(actual->vecinos[j]).first].precio = (actual->vecinos[j]).second; //si es mejor actualizo el precio
 						_todos[(actual->vecinos[j]).first].arista = actual->id;						//la arista con la q esta conectado
 						_proximos.push(&_todos[(actual->vecinos[j]).first]);					//y lo agrego en proximos para luego recorrerlo
+						
 					}
 				}
 			}
