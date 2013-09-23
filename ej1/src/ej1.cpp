@@ -20,16 +20,23 @@ Problema::Problema(istream& is){
 		}
 		costos.push_back(aux);
 	}
-	
-	costo_final= -1;
 }
 
 void Problema::mostrarResultado (ostream& os){
-	for(int i=0; i<cantTrabajos; i++){
-		for(int j=1; j<=cantTrabajos; j++){
-			cout<< dp[i][j].costo << " ";
-		}
-		cout<< endl;
+	//~ //mostrar matriz dp
+	//~ for(int i=0; i<cantTrabajos; i++){
+		//~ for(int j=1; j<=cantTrabajos; j++){
+			//~ os<< dp[i][j].costo << " ";
+		//~ }
+		//~ os<< endl;
+	//~ }
+	// C k i_1 ... i_k
+	os<< dp[nodo_solucion.first][nodo_solucion.second].costo << " ";
+	os<< dp[nodo_solucion.first][nodo_solucion.second].m1.size() << " ";
+	
+	for(int i=0; i< dp[nodo_solucion.first][nodo_solucion.second].m1.size(); i++){
+		os<< dp[nodo_solucion.first][nodo_solucion.second].m1[i];
+		if(i!= dp[nodo_solucion.first][nodo_solucion.second].m1.size()-1) os<< " ";
 	}
 }
 
@@ -48,23 +55,42 @@ void Problema::resolver(){
 	}
 	
 	dp[0][1]= costos[1][0]; //caso base
-	//..
+	dp[0][1].m2.push_back(1);
+	//calculo
 	for(int j=2; j<=cantTrabajos; j++){
 		for(int i=0; i<=j-1; i++){
 			
 			if(i==j-1){
 				int min= 1e9;
+				int kminimo;
 				for(int k=0; k<=j-2; k++){
 					if( dp[k][j-1].costo + costos[j][k] < min){
 						min= dp[k][j-1].costo + costos[j][k];
+						kminimo= k;
 					}
 				}
-				dp[j-1][j].costo = min;
+				dp[i][j].costo = min;
+				dp[i][j].m1= dp[kminimo][j-1].m2;
+				dp[i][j].m2= dp[kminimo][j-1].m1;
+				dp[i][j].m2.push_back(j);
 				
 			}
 			else{
 				dp[i][j].costo= dp[i][j-1].costo + costos[j][j-1];
+				dp[i][j].m1= dp[i][j-1].m1;
+				dp[i][j].m2= dp[i][j-1].m2;
+				dp[i][j].m2.push_back(j);
 			}
+		}
+	}
+	//fin, falta encontrar el minimo de la ultima columna
+	int min= 1e9;
+	nodo_solucion.second=cantTrabajos;
+	
+	for(int i=0; i< cantTrabajos; i++){
+		if(dp[i][cantTrabajos].costo < min){ 
+			min= dp[i][cantTrabajos].costo;
+			nodo_solucion.first= i;
 		}
 	}
 }
