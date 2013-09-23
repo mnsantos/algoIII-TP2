@@ -1,71 +1,70 @@
 #include "../include/problema.h"
 
+#define infinito 1e9;
+
 using namespace std;
 
 Problema::Problema(istream& is){
 	int costoij;
 	is>> cantTrabajos;
 	vector<int> vacio;
-	vector<int> costos;
+	vector<int> aux;
 	
-	trabajos.push_back(vacio); //pusheo el vector vacio para tener ocupada la pos 0 (para no hacer lio con los indices de los trabajos)
+	costos.push_back(vacio); //pusheo el vector vacio para tener ocupada la pos 0 (para no hacer lio con los indices de los trabajos)
 	for(int i=1; i<=cantTrabajos; i++){
-		costos= vacio;
+		aux= vacio;
 		
 		for(int j=0; j<i; j++){
 			is>> costoij;
-			costos.push_back(costoij);
+			aux.push_back(costoij);
 		}
-		trabajos.push_back(costos);
+		costos.push_back(aux);
 	}
+	
+	costo_final= -1;
 }
 
 void Problema::mostrarResultado (ostream& os){
-	os<< costo_final << " ";
-	os<< trabajos_finales.size() << " ";
-	
-	for(int i=0; i<trabajos_finales.size(); i++){
-		os<< trabajos_finales[i];
-		if(i!= trabajos_finales.size()-1) os<< " ";
+	for(int i=0; i<cantTrabajos; i++){
+		for(int j=1; j<=cantTrabajos; j++){
+			cout<< dp[i][j].costo << " ";
+		}
+		cout<< endl;
 	}
 }
 
 void Problema::resolver(){
-	nodo aux(trabajos[1][0]); //creo un nodo con el costo= costo de hacer t1 primero
-	aux.m1.push_back(1); //pongo el t1 en la maquina 1 (asumo q m1 es siempre donde pongo el t1)
-	aux.m2.push_back(0); //pongo nada en la maquina 2
-	solucion.push_back(aux);
+	//inicializacion
+	nodo inf( 1e9 );
+	nodo no_calculado(-1);
 	
+	for(int i=0; i< cantTrabajos; i++){ //0<=i<n
+		vector< nodo> row;
+		for(int j=0; j<= cantTrabajos; j++){ //0<=j<=n matriz de n+1 columnas pero no uso la 0
+			if(i>=j || j==0) row.push_back(inf); //si la pos es invalida pone un infinito
+			else row.push_back(no_calculado);	//si es valida la pone como no calculada
+		}
+		dp.push_back(row);
+	}
 	
-	for(int i=2; i<=cantTrabajos; i++){		//recorro los trabajos
-		vector< nodo > solucion_parcial;
-		
-		for(int j=0; j<solucion.size(); j++){ //recorro las pos de solucion
-			//si el ti va en m1
-			nodo copia(solucion[j]);
-			copia.costo += trabajos[i][copia.m1.back()];	//al costo q salia hasta ahora le sumo el costo de poner ti dsp del ultimo trabajo en m1
-			copia.m1.push_back(i);	//pongo ti como ultimo trabajo agregado a m1
-			solucion_parcial.push_back(copia); //agrego el nodo a la solucion parcial
+	dp[0][1]= costos[1][0]; //caso base
+	//..
+	for(int j=2; j<=cantTrabajos; j++){
+		for(int i=0; i<=j-1; i++){
 			
-			//si el ti va en m2
-			nodo copia2(solucion[j]);
-			copia2.costo += trabajos[i][copia2.m2.back()];	//al costo q salia hasta ahora le sumo el costo de poner ti dsp del ultimo trabajo en m2
-			copia2.m2.push_back(i);	//pongo ti como ultimo trabajo agregado a m2
-			solucion_parcial.push_back(copia2); //agrego el nodo a la solucion parcial
-		}
-		
-		solucion= solucion_parcial; //actualizo la solucion y paso al prox trabajo
-	}
-	
-	//cuando salgo de aca tengo en solucion todos los costos de todas las combinaciones
-	int combinacion_final= 0; //para no andar copiando el vector con los trabajos
-	costo_final= solucion[0].costo;
-	
-	for(int j=1; j<solucion.size(); j++){ //recorro solucion
-		if(solucion[j].costo < costo_final){ //si la solucion j es mas barata q la actual
-			costo_final= solucion[j].costo;
-			combinacion_final= j;
+			if(i==j-1){
+				int min= 1e9;
+				for(int k=0; k<=j-2; k++){
+					if( dp[k][j-1].costo + costos[j][k] < min){
+						min= dp[k][j-1].costo + costos[j][k];
+					}
+				}
+				dp[j-1][j].costo = min;
+				
+			}
+			else{
+				dp[i][j].costo= dp[i][j-1].costo + costos[j][j-1];
+			}
 		}
 	}
-	trabajos_finales= solucion[combinacion_final].m1;
 }
