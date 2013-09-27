@@ -1,0 +1,25 @@
+\subsection{Complejidad:}
+
+\textbf{Línea 2:} Inicializar cada posición de un vector de vectores n*n es O(n*n)=O($n^{2}$).\\
+
+\textbf{Líneas 3 y 4:} Modificar una posición de un vector de vectores es O(1).\\
+
+\textbf{Línea 5, inicio del For j:} El ciclo realiza n-1 iteraciones, es O(n).\\
+
+\textbf{Línea 6, inicio del For i:} El ciclo realiza j iteraciones, como j es a lo sumo n una cota, un poco exagerada, para este ciclo sería O(n).\\
+
+\textbf{Línea 7, guarda del If:} Comparación entre enteros, es O(1).\\
+
+\textbf{Líneas 8 y 9, cuerpo del If:} Modificar la posición de dp y $agregar\_a\_maquina2(j)$ es O(1).\\
+
+\textbf{Líneas 11 y 12, cuerpo del Else:} Modificar la posición de dp y $agregar\_a\_maquina2(j)$ es O(1).\\
+
+\textbf{Línea 13, fín If:} Complejidad en el peor caso del If = O(1).\\
+
+\textbf{Línea 14, fín For i:} Complejidad = O(n).O(1) = O(n).\\
+
+\textbf{Línea 15, fín For j:} Complejidad = O(n).O(n) = O($n^{2}$).\\
+
+\textbf{Línea 16, return:} Recorre la última columna, es decir, hace n iteraciones = O(n).\\
+
+\textbf{Complejidad total:} O($n^{2}$) + O(1) + O($n^{2}$)= O($2*n^{2}$) = O($n^{2}$)
