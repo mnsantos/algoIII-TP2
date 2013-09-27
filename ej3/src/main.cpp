@@ -22,9 +22,9 @@ int main()
         }
 	}
 	for(int i = 0;i<cantProblemas;i++){
+		problemas[i].mostrarMatriz();
 		problemas[i].resolver();
-		problemas[i].mostrarResultado(cout);
-		cout<< endl;
+		//problemas[i].mostrarResultado(cout);
 	}
     return 0;
 }
