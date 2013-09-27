@@ -1,0 +1,21 @@
+\subsection{Pseudocódigo}
+
+Del enunciado del problema se pueden deducir ciertos datos que nos van a ayudar a dar con el algoritmo que buscamos.
+
+Aunque resulte un poco obvio a esta altura, la forma de interpretar el problema es por medio de un grafo, en principio no orientado, donde los nodos representan servidores y las aristas los enlaces entre sí.
+
+Sabemos por el enunciado que la entrada que recibimos, es la salida del ejercicio anterior, por lo tanto podemos afirmar:
+
+\begin{itemize}
+\item Desde un servidor (cualquiera) se debe poder llegar a todos los demás.
+\item La cantidad de enlaces usados es mínima.
+\end{itemize}
+
+De lo primero se deduce que el grafo es conexo, no importa que par de nodos elija, existe un camino que los comunica.
+
+El segundo punto nos permite afirmar que no hay circuitos simples (camino que salga de un nodo y vuelva al mismo, pasando a lo sumo una vez por cada arista). Si existiera uno, podría, fijando un master llegar a un cierto nodo n (distinto del master) que pertenece al circuito simple, de dos formas diferentes. (GRAFICAR O EXPLICAR MEJOR)
+
+Entonces tenemos un grafo conexo sin ciclos simples, es decir un árbol. Ahora estamos m
+
+
+Como vimos en la descripción, partimos de un nodo que es el master
