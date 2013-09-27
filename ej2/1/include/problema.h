@@ -11,6 +11,8 @@
 using namespace std;
 
 struct Problema{
+	
+	
 	void resolver();
 	Problema (istream&);
 	void mostrarResultado (ostream&);
