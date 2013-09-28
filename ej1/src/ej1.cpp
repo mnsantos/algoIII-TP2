@@ -30,13 +30,14 @@ void Problema::mostrarResultado (ostream& os){
 		//~ }
 		//~ os<< endl;
 	//~ }
-	// C k i_1 ... i_k
-	os<< dp[nodo_solucion.first][nodo_solucion.second].costo << " ";
-	os<< dp[nodo_solucion.first][nodo_solucion.second].m1.size() << " ";
 	
-	for(int i=0; i< dp[nodo_solucion.first][nodo_solucion.second].m1.size(); i++){
-		os<< dp[nodo_solucion.first][nodo_solucion.second].m1[i];
-		if(i!= dp[nodo_solucion.first][nodo_solucion.second].m1.size()-1) os<< " ";
+	// C k i_1 ... i_k
+	os<< costo_final << " ";
+	os<< solucion.size();
+	
+	while(!solucion.empty()){
+		os<< " "<< solucion.front();
+		solucion.pop_front();
 	}
 }
 
@@ -55,7 +56,8 @@ void Problema::resolver(){
 	}
 	
 	dp[0][1]= costos[1][0]; //caso base
-	dp[0][1].m2.push_back(1);
+	dp[0][1].anterior= -1;
+	dp[0][1].maquina= 2;
 	//calculo
 	for(int j=2; j<=cantTrabajos; j++){
 		for(int i=0; i<=j-1; i++){
@@ -70,27 +72,38 @@ void Problema::resolver(){
 					}
 				}
 				dp[i][j].costo = min;
-				dp[i][j].m1= dp[kminimo][j-1].m2;
-				dp[i][j].m2= dp[kminimo][j-1].m1;
-				dp[i][j].m2.push_back(j);
+				dp[i][j].anterior= kminimo;
+				if(dp[kminimo][j-1].maquina==1){ //lo agrego a la maquina contraria a la q se encuentra j-1 (en la pos kminimo)
+					dp[i][j].maquina= 2;
+				}
+				else{
+					dp[i][j].maquina= 1;
+				}
 				
 			}
 			else{
 				dp[i][j].costo= dp[i][j-1].costo + costos[j][j-1];
-				dp[i][j].m1= dp[i][j-1].m1;
-				dp[i][j].m2= dp[i][j-1].m2;
-				dp[i][j].m2.push_back(j);
+				dp[i][j].anterior= i;
+				dp[i][j].maquina= dp[i][j-1].maquina; //lo agrego a la maquina donde esta j-1
 			}
 		}
 	}
 	//fin, falta encontrar el minimo de la ultima columna
-	int min= 1e9;
-	nodo_solucion.second=cantTrabajos;
+	costo_final= 1e9;
+	int nodo_solucion;
 	
 	for(int i=0; i< cantTrabajos; i++){
-		if(dp[i][cantTrabajos].costo < min){ 
-			min= dp[i][cantTrabajos].costo;
-			nodo_solucion.first= i;
+		if(dp[i][cantTrabajos].costo < costo_final){ 
+			costo_final= dp[i][cantTrabajos].costo;
+			nodo_solucion= i;
 		}
+	}
+	
+	int i= nodo_solucion; //pongo un i para q sea mas legible
+	for(int j= cantTrabajos; j>=1; j--){
+		if(dp[i][j].maquina==1){
+			solucion.push_front(j);
+		}
+		i= dp[i][j].anterior;
 	}
 }
