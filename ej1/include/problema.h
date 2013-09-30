@@ -32,6 +32,7 @@ struct Problema{
 	
 	vector< vector< nodo> > dp;  //matriz de n*n (0<=i<n-1 , 0<=j<=n pero la columna 0 nunca la uso, solo es para acomodar el indexado) [cantTrabajos][cantTrabajos+1]
 	int costo_final;
+	int nodo_solucion;
 	list<int> solucion;
 	
 	void resolver();

@@ -8,17 +8,17 @@
 	
 	\State dp[0][1]$\gets Costos(1,0)$ \Comment{en la posición (0,1) de la matriz guardo el valor de hacer el trabajo uno primero}
 	
-	\State $agregar\_a\_maquina2(1)$ \Comment{voy guardando los trabajos para saber al final cómo los dividí}
+	\State $agregar\_a\_maquina(1)$ \Comment{guardo en qué máquina agregué el trabajo}
 	
 	\For{$j\gets 2, n$} \Comment{el trabajo 1 ya lo agregué}
 		\For{$i\gets 0, j-1$}
 			\If{$i=j-1$}
 				\State $dp[i][j]\gets minimo(dp[i][k]\ +\ Costos(j,\ k),\ \forall\ 0\leq k\leq j-2) $
-				\State $agregar\_a\_maquina2(j)$
+				\State $agregar\_a\_maquina(j)$
 				
 			\Else
 				\State $dp[i][j]\gets (dp[i][j-1]\ +\ Costos(j,\ j-1))$
-				\State $agregar\_a\_maquina2(j)$
+				\State $agregar\_a\_maquina(j)$
 			\EndIf
 		\EndFor
 	\EndFor
@@ -29,4 +29,4 @@
 \end{algorithmic}
 \end{algorithm}
 
-\textit{Nota:} Cuando escribo $agregar\_a\_maquina2(j)$ me refiero a agregar j a una lista que depende de la posición de la matriz dp (i.e. hay una para cada posición).\\
+\textit{Nota:} $agregar\_a\_maquina(j)$ modifica un entero que depende del $agregar\_a\_maquina(j-1)$ pero sigue siendo O(1) ya que accede una vez a la matriz, realiza una comparación de enteros y modifica una variable entera.\\

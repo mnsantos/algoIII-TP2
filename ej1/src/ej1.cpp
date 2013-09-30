@@ -23,6 +23,15 @@ Problema::Problema(istream& is){
 }
 
 void Problema::mostrarResultado (ostream& os){
+	//esto lo hago para q sea mas facil escribir la solucion, no agrega mucho
+	int i= nodo_solucion; //pongo un i para q sea mas legible
+	for(int j= cantTrabajos; j>=1; j--){
+		if(dp[i][j].maquina==1){
+			solucion.push_front(j);
+		}
+		i= dp[i][j].anterior;
+	}
+	
 	//~ //mostrar matriz dp
 	//~ for(int i=0; i<cantTrabajos; i++){
 		//~ for(int j=1; j<=cantTrabajos; j++){
@@ -90,20 +99,12 @@ void Problema::resolver(){
 	}
 	//fin, falta encontrar el minimo de la ultima columna
 	costo_final= 1e9;
-	int nodo_solucion;
+	nodo_solucion;
 	
 	for(int i=0; i< cantTrabajos; i++){
 		if(dp[i][cantTrabajos].costo < costo_final){ 
 			costo_final= dp[i][cantTrabajos].costo;
 			nodo_solucion= i;
 		}
-	}
-	
-	int i= nodo_solucion; //pongo un i para q sea mas legible
-	for(int j= cantTrabajos; j>=1; j--){
-		if(dp[i][j].maquina==1){
-			solucion.push_front(j);
-		}
-		i= dp[i][j].anterior;
 	}
 }
