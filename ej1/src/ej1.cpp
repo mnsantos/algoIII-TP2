@@ -22,7 +22,7 @@ Problema::Problema(istream& is){
 	}
 }
 
-void Problema::mostrarResultado (ostream& os){
+void Problema::mostrarResultado(ostream& os){
 	//esto lo hago para q sea mas facil escribir la solucion, no agrega mucho
 	int i= nodo_solucion; //pongo un i para q sea mas legible
 	for(int j= cantTrabajos; j>=1; j--){
