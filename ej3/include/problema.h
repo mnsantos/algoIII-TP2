@@ -11,17 +11,31 @@
 
 using namespace std;
 
+typedef pair<int,int> ady;
+struct arista{
+	int e1;
+	int e2;
+	int l;
+}; 
+
+inline bool operator< (arista a,arista b){return a.l>b.l;}
+
+struct Nodo{
+	vector<ady> adyacentes;
+};
+
 struct Grafo{
-	vector< vector<int> > adyacencias;
+	vector<Nodo> nodos;
 	int _cantNodos;	
+	void mostrarGrafo(ostream&);	
 };
 
 struct Problema{
-	void resolver();
+	vector<arista> resolver();
 	Problema (istream&);
-	void mostrarResultado (ostream&);
-	void mostrarMatriz();
-	vector<int> dijkstra(int);
+	void mostrarResultado (vector<arista>&,ostream&);
+	vector<arista> prim(priority_queue<arista>&);
+	arista obtenerMin(vector<bool>&, priority_queue<arista>&);
 	
 	Grafo g;
 	int _cantFabricas;
