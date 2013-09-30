@@ -30,8 +30,10 @@ int main()
 	}
 	unsigned long long int start=0, end=0, result=0;
 	
-	int cantRepeticiones= 1000;
+	int cantRepeticiones= 700;
 	for(int i = 0;i<cantProblemas;i++){
+		start=0; end=0; result=0;
+		
 		for(int j=0; j<cantRepeticiones; j++){
 			MEDIR_TIEMPO_START(start);
 			problemas[i].resolver();
