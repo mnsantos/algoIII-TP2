@@ -15,7 +15,77 @@ De lo primero se deduce que el grafo es conexo, no importa que par de nodos elij
 
 El segundo punto nos permite afirmar que no hay circuitos simples (camino que salga de un nodo y vuelva al mismo, pasando a lo sumo una vez por cada arista). Si existiera uno, podría, fijando un master llegar a un cierto nodo n (distinto del master) que pertenece al circuito simple, de dos formas diferentes. (GRAFICAR O EXPLICAR MEJOR)
 
-Entonces tenemos un grafo conexo sin ciclos simples, es decir un árbol. Ahora estamos m
+Entonces tenemos un grafo conexo sin ciclos simples, es decir un árbol. Ahora estamos más cerca de la resolución.
+
+Ahora como sabemos que es un árbol tenemos un único camino que conecta a cada nodo con el posible master. Y lo que buscamos es elegirlo de tal forma que se pueda llegar a todos los nodos en la menor cantidad de pasos posibles. (MINIMO DE LAS DISTANCIAS MAXIMAS PARA CADA MASTER, FORMALIZARLO).
+
+Encontrar este nodo mediante la definición de arriba puede resultar muy costoso, ya que deberíamos calcular la máxima distancia a todos los nodos desde cada nodo, que nos conduce a una complejidad cuadrática.
+
+En cambio vamos a resolverlo intentando encontrar un nodo que pertenezca a un máximo camino posible dentro del árbol, y además sea el centro de dicho camino, es decir la distancia desde él a ambos extremos no puede diferir en más de 1. Más adelante vamos a demostrar porque es correcto.
+
+Para implementar el algoritmo utilizamos lo siguiente:
+\begin{enumerate}
+\item Una estructura para los nodos, que se compone de:
 
 
-Como vimos en la descripción, partimos de un nodo que es el master
+\begin{itemize}
+\item Nodos\_Adyacentes: Una lista de adyacentes al nodo.
+\item Prim\_Long\_Max y Seg\_Long\_Max: las longitudes de sus dos ramas más largas. 
+\item Nodo\_Rama\_Max: el nodo hacia el que está volcada la rama más larga. 
+\item Suma\_Longs: la suma de ambas longitudes.
+\end{itemize}
+
+
+
+\item Una lista de nodos(estructura del item anterior), llamada árbol.
+\item Una función recursiva que parta de un nodo y vaya calculando los datos mencionados en el primer item, haciendo llamados a los adyacentes (salvo a aquel del que vino).
+\item Finalmente con los datos almacenados en la lista de nodos, busco el nodo master.
+\end{enumerate}
+
+ Suponiendo que ya tenemos el arreglo de n nodos, cada uno en la posición que le corresponde según el número, con la información de sus adyacentes ya cargada, pasamos a ver el pseudocódigo del algoritmo recursivo y luego del que busca el master.
+
+ *Nota*: Dentro del algoritmo recursivo la función ActualizarMaximos actualiza los valores de las dos ramas más largas, y hacia donde está la rama más larga.
+ Después del ciclo se usa una función llamada ActualizarArbol que actualiza los datos de la lista de nodos, para el nodo en el que se encuentra (dos ramas largas, suma de ramas y hacia donde va la rama más larga).
+ 
+\begin{algorithm}
+\caption{Algoritmo Recursivo}\label{Recursion}
+ 
+\begin{algorithmic}[1]
+
+\Function{CalcularRamaLarga}{$ nroNodo, nroPadre $} \Comment { El primero es el ID del nodo que quiero calcular y el segundo me dice de donde proviene}
+
+\While{$QuedanHijos(Arbol[nroNodo])$}\Comment{cicla mientras todavía queden adyacentes por recorrer} 
+	
+	\State{$ hijo \gets ObtenerUnHijo(Arbol[nroNodo]$} \Comment { toma un nodo adyacente y lo guarda en Hijo}
+	
+	\If{$ hijo != NroPadre$}
+		\State {$ rama = CalcularRamaLarga( hijo, nroNodo) $} \Comment {llamado recursivo}
+		\State {$ ActualizarMaximos(rama, ramaMax1, ramaMax2, nodo\_rama\_Max1)$}\Comment {ver *Nota*}
+	\EndIf
+\EndWhile\
+
+\State{$ ActualizarArbol (nroNodo, ramaMax1, ramaMax2, nodo\_rama\_Max1) $}\Comment {ver *Nota*}	
+\State{$ return (ramaMax1 + 1) $} \Comment { esto devuelve al padre la longitud de la rama más larga hacia este nodo}
+
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{EncontrarMaster}
+ 
+\begin{algorithmic}[1]
+\Procedure{BuscarMaster}{}
+\State{$nodo \gets Max\_Suma(Arbol)$} \Comment{recorre arbol, buscando el nodo con suma de ramas máxima}
+\State{$ r1 = Arbol[nodo].ramaMax1$} \Comment {en r1 y r2 tengo las longitudes de las ramas más largas del nodo}
+\State{$ r2 = Arbol[nodo].ramaMax2$}
+	\While{r1 != r2 && (r1 -1) != r2} \Comment{cicla mientras la diferencia entre r1 y r2 sea mayor a 1}
+	\State{$ nodo = arbol[nodo].nodoRamaLarga$} \Comment{me muevo hacia el nodo con la rama más larga}
+	\State{$ r1--$} \Comment{siempre me muevo hacia la rama de r1}
+	\State{$ r2++$}
+	\EndWhile
+	\Comment{Cuando salgo del ciclo nodo contiene al master}
+	
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
