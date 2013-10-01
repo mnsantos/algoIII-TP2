@@ -13,8 +13,8 @@
 	\For{$j\gets 2, n$} \Comment{el trabajo 1 ya lo agregué}
 		\For{$i\gets 0, j-1$}
 			\If{$i=j-1$}
-				\State $dp[i][j]\gets minimo(dp[i][k]\ +\ Costos(j,\ k),\ \forall\ 0\leq k\leq j-2) $
-				\State $agregar\_a\_maquina(j)$
+				\State $dp[i][j]\gets minimo(dp[i][k]\ +\ Costos(j,\ k),\ \forall\ 0\leq k\leq j-2) $ 
+				\State $agregar\_a\_maquina(j)$ \Comment{Costos(j, k) es el costo de hacer el trabajo j después del k}
 				
 			\Else
 				\State $dp[i][j]\gets (dp[i][j-1]\ +\ Costos(j,\ j-1))$

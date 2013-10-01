@@ -1,0 +1,44 @@
+\subsection{Demostración:}
+
+La idea del algoritmo es sacar el costo según quién es el último trabajo de cada máquina (en vez de realizar todas las combinaciones) e ir guardando estos datos en una matriz para reutilizarlos más adelante.\\
+
+Idea: dp(i,j)= mínimo costo para que una máquina termine en i y otra en j.\\
+
+El algoritmo está definido por la siguiente función, con i<j \footnote{para no sacar dos veces los valores, las máquinas son iguales por lo tanto hacer (i,j)=(j,i)}:\\
+
+$dp(i,j)= \left\{ \begin{array}{lcc}
+				dp(i,j-1) + Costos(j, j-1) & si & i \neq j-1\\
+				\\ minimo(\ dp(k,i)\ + Costos(j, k)\ \forall 0\leq k\leq j-2\ ) & si & i=j-1
+				\end{array}
+		\right.$
+\\
+
+Como i<j e i$\neq$j-1 $\Rightarrow$ i<j-1, entonces para que una máquina termine en i y otra en j, j debe venir después de j-1 ya que j-1 no puede ir antes que i ni de ningún otro que no sea j (j-1 es el más grande distinto de j).
+
+Si i=j-1 puedo combinar los trabajos de muchas maneras y j puede venir después de 0,1,... j-2. Además el costo de hacer j después de cada uno de ellos puede variar mucho, entonces debo ver todas esas combinaciones y luego puedo quedarme con la mínima que es la que me interesa.\\
+
+Para demostrar la correctitud voy a probar que dada una posición (i,j) de la matriz, tengo en ella el mínimo costo de todas las combinaciones de forma que en una máquina el último trabajo sea i y en la otra sea j.
+
+\textbf{Hipótesis inductiva:}\\
+	Dada una columna j de la matriz, en cada posición (i,j) con 0$\leq$i<j, tengo el mínimo costo de todas las combinaciones de forma que en una máquina el último trabajo sea i y en la otra sea j. De ahora en más lo voy a llamar mínimo(i,j).\\
+	
+\textbf{Caso base:}\\
+El caso de j=1 es trivial y se encuentra fuera de los For (dónde implemento la función explicada más arriba), es un caso muy particular así que mi caso base será j=2.
+
+Quiero ver que $\forall\ 0\leq i<j$, dp(i,2) es mínimo(i,2).\\
+Lo divido en casos:
+
+Si i=0 (i$\neq$j-1): dp(0,2) = una máquina no tiene ningún trabajo y la otra termina en t2, es decir, tiene a t1 y t2. Como existe una única forma de hacer esta combinación el resultado es mínimo(0,2).
+
+Si i=1 (i=j-1): dp(1,2) = una máquina tiene al t1 y otra al t2, luego existe una única forma de hacer esto, entonces es mínimo(1,2).\\
+
+\textbf{Paso inductivo:}\\
+Supongo que $\forall\ 0\leq k<j$, vale la H.I., quiero ver que vale para j.\\
+Lo divido en casos:
+
+Si i$\neq$j-1: dp(i,j) =\footnote{por definición de la función} dp(i,j-1) + Costos(j,j-1)\\
+Como j-1<j entonces dp(i,j-1) es mínimo(i,j-1) por H.I. y Costos(j,j-1) es un valor único $\Rightarrow$ dp(i,j-1) + Costos(j,j-1) es mínimo(i,j).
+
+Si i=j-1: dp(i,j) =\footnote{por definición de la función} minimo( dp(k,i) + Costos(j, k) $\forall 0\leq k\leq j-2$ )\\
+Como k$\leq$j-2, k<j entonces dp(k,i) es mínimo(i,k)\footnote{cómo las máquinas son iguales mínimo(i,k) = mínimo(k,i), lo escribo así para que se entienda mejor} por H.I.\\
+Como los Costos(j, k) pueden variar mucho según el k no puedo asegurar que dp(k,i) + Costos(j, k) es mínimo(i,j). Pero dentro de todos esos valores me quedo con el mínimo entonces sé que vale.\\
