@@ -10,10 +10,30 @@
 
 using namespace std;
 
+
+struct Servidor{ //o nodo
+	int indice;
+	bool marcado;
+	Servidor(int ind){indice = ind; marcado = false;} 
+	void marcar(){indice = true;}
+}
+
+
+struct Enlace{ //o arista
+	Servidor nodo1;
+	Servidor nodo2;
+	int peso;
+	Enlace(Servidor n1, Servidor n2, int p){nodo1 = n1; nodo2 = n2; peso = p;}
+}
+
+
 struct Problema{
+	int _cantServidores;	
+	int _cantEnlaces;
 	
-	
-	void resolver();
+	vector<vector<Enlace> > grafo; //matriz 
+
+	void pseudoPrim(); //en vez de resolver, para despues tratar de mezclar con el .2
 	Problema (istream&);
 	void mostrarResultado (ostream&);
 };
