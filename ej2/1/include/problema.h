@@ -14,7 +14,8 @@ using namespace std;
 struct Servidor{ //o nodo
 	int indice;
 	bool marcado;
-	Servidor(int ind){indice = ind; marcado = false;} 
+	Servidor(int ind):indice(ind),marcado(false){} 
+	Servidor():indice(0),marcado(false){}
 	void marcar(){marcado = true;}
 };
 
@@ -23,7 +24,7 @@ struct Enlace{ //o arista
 	Servidor nodo1;
 	Servidor nodo2;
 	int peso;
-	Enlace(Servidor n1, Servidor n2, int p){nodo1 = n1; nodo2 = n2; peso = p;}
+	Enlace(Servidor n1, Servidor n2, int p):nodo1(n1),nodo2(n2),peso(p){}
 };
 
 
