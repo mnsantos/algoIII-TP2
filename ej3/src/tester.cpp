@@ -2,8 +2,8 @@
 #include <iostream>
 #include "../include/problema.h"
 
-void mostrarCiclos(ostream& os, int cantClientes, unsigned long long int result){
-	os << cantClientes << " " << result <<endl;
+void mostrarCiclos(ostream& os, int cantRutas, unsigned long long int result){
+	os << cantRutas << " " << result <<endl;
 }
 
 using namespace std;
@@ -32,7 +32,7 @@ int main()
 		problemas[i].resolver();
 		MEDIR_TIEMPO_STOP(end);
 		result=end-start;
-		mostrarCiclos(cout,problemas[i]._cantClientes,result);
+		mostrarCiclos(cout,problemas[i]._cantRutas,result);
 	}
     return 0;
 }
