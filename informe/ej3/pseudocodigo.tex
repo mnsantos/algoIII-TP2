@@ -6,7 +6,7 @@ Para resolver este ejercicio utilizamos el algoritmo de Prim con algunas modific
 
 A continuación un pseudocódigo del algoritmo de Prim del cual iremos mostrando las modificaciones hechas.
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{Prim}\label{ej1}
 \begin{algorithmic}[1]
 \Procedure{Prim}{$G=(V,E)$}
@@ -26,7 +26,7 @@ A continuación un pseudocódigo del algoritmo de Prim del cual iremos mostrando
 
 Teniendo en cuenta que la configuración inicial del problema no nos garantiza que todos los nodos tengan al menos un nodo conectado (pueden haber fábricas aisladas) y considerando que la solución final hallada no debe ser necesariamente un árbol, el algoritmo tendrá que  inicializar el conjunto B con todas las fábricas disponibles e ir eligiendo aristas de longitud mínima que no comuniquen fábricas con fábricas. Entonces, el pesudocódigo quedaría de la siguiente forma:
 
-\begin{algorithm}
+\begin{algorithm}[H]
 \caption{PrimModificado}\label{ej1}
 \begin{algorithmic}[1]
 \Procedure{PrimModificado}{$G=(V,E), int \ cantClientes,int \ cantFabricas$}
