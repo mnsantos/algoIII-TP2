@@ -4,12 +4,12 @@ using namespace std;
 
 Problema::Problema(istream& is){
 	is >> _cantServidores >> _cantEnlaces;
-	int n1,n2;
+	int n1,n2,peso;
 	//cout << n1 << " "<< n2 << endl; //tienen que ser cero
 	Servidor aux(n1);
 	Enlace inicial(aux, aux,-1);
 	for(int i=0; i< _cantEnlaces; i++){
-		for(int j=0; j< _cantNodos){	//inicializo con Enlaces (o aristas) de peso
+		for(int j=0; j< _cantServidores;j++){	//inicializo con Enlaces (o aristas) de peso
 			grafo[i][j]= inicial;	//-1 para distinguirlos de las aristas de entrada
 		}
 	}
@@ -20,12 +20,12 @@ Problema::Problema(istream& is){
 		is>>peso;
 		Servidor nodo1(n1);
 		Servidor nodo2(n2);
+		Enlace arista(nodo1,nodo2,peso);
 		if(n1 > n2){
-			Enlace arista(nodo2, nodo1, peso); //hago q los nodos de los enlaces esten ordenaditos
-		}else{
-			Enlace arista(nodo1, nodo2, peso)
+			arista.nodo1=nodo2;
+			arista.nodo2=nodo2;
 		}
-		grafo[nodo1.indice][nodo2.indice](arista);	//cargo los parametros en la mitad de la arista (supongo q en la superior)
+		grafo[nodo1.indice][nodo2.indice]=arista;	//cargo los parametros en la mitad de la arista (supongo q en la superior)
 	}
 }
 
@@ -36,18 +36,16 @@ Problema::Problema(istream& is){
 void Problema::mostrarResultado (ostream& os){
 	
 	for(int i = 0; i < _cantServidores; i++){
-		os<< "(" << arbol[i].nodo1 << ", " << arbol[i].nodo2 << ", " << arbol[i].peso << ")" << endl;
+		os<< "(" << arbol[i].nodo1.indice << ", " << arbol[i].nodo2.indice << ", " << arbol[i].peso << ")" << endl;
 	}
 }	
 
 
-
+bool comparar(Enlace i, Enlace j){return (i.peso < j.peso);} //de mayor a menor pues obtengo el ultimo en O(1)
 
 void Problema::pseudoPrim(){
 
 	vector<Enlace> monton; //para obtener aristas livianas en O(1)
-	//vector<Enlace> arbol; //el AGM ...teoricamente
-	bool comparar (Enlace i, Enlace j){return (i.peso < j.peso);}  //de mayor a menor pues obtengo el ultimo en O(1)
 	Servidor k = grafo[0][1].nodo1 ; //este ndo es el de indice 1, esta en toda la primer fila del grafo
 
 	for(int i = 0; i < _cantServidores; i++){  //hasta formar un arbol (n-1 veces)
@@ -59,21 +57,21 @@ void Problema::pseudoPrim(){
 		}
 
 
-		sort(monton.begin, monton.end, comparar);
+		sort(monton.begin(), monton.end(), comparar);
 
-		
+		bool noTermine=true;
 		while(noTermine){  //busco la arista
-			k.mark(); //marco el nodo 
+			k.marcar(); //marco el nodo 
 
-			if(!(monton.end().nodo1.marcado) && (monton.end().nodo2.marcado) ){ //
-				auxiliar.push_back(monton.end());
-				k = monton.end();
+			if(!(monton.back().nodo1.marcado) && (monton.back().nodo2.marcado) ){ //
+				arbol.push_back(monton.back());
+				k = monton.back().nodo1;
 				noTermine = false;
 			}
- 			if((monton.end().nodo1.marcado) && !(monton.end().nodo2.marcado)){
+ 			if((monton.back().nodo1.marcado) && !(monton.back().nodo2.marcado)){
 		
-				auxiliar.push_back(monton.end());
-				k = monton.end();
+				arbol.push_back(monton.back());
+				k = monton.back().nodo2;
 				noTermine = false; 
 		 	}									
 			monton.pop_back(); //saco la arista elejida, sea la q quiera o no
