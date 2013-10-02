@@ -20,11 +20,12 @@ Problema::Problema(istream& is){
 		is>>peso;
 		Servidor nodo1(n1);
 		Servidor nodo2(n2);
-
-		Enlace arista(nodo1, nodo2, peso);
-
-		grafo[nodo1.indice][nodo2.indice](arista);	//cargo los parametros en toda
-		grafo[nodo2.indice][nodo1.indice](arista);	//la matriz solo por ahora
+		if(n1 > n2){
+			Enlace arista(nodo2, nodo1, peso); //hago q los nodos de los enlaces esten ordenaditos
+		}else{
+			Enlace arista(nodo1, nodo2, peso)
+		}
+		grafo[nodo1.indice][nodo2.indice](arista);	//cargo los parametros en la mitad de la arista (supongo q en la superior)
 	}
 }
 
@@ -40,8 +41,8 @@ void Problema::mostrarResultado (ostream& os){
 
 void Problema::pseudoPrim(){
 
-	vector<Enlace> monton;
-	vector<Enlace> arbol;
+	vector<Enlace> monton; //para obtener aristas livianas en O(1)
+	vector<Enlace> arbol; //el AGM ...teoricamente
 	bool comparar (Enlace i, Enlace j){return (i.peso < j.peso);}  //de mayor a menor pues obtengo el ultimo en O(1)
 	
 	for(int i = 0; i < _cantServidores; i++){  //hasta formar un arbol (n-1 veces)
@@ -51,17 +52,31 @@ void Problema::pseudoPrim(){
 				monton.push_back(grafo[i][j]);
 			}
 		}
-		sort(monton.begin, monton.end, comparar);
-		if( !(monton.end().nodo1.marcado) || (monton.end().nodo2.marcado) ){
-		
-			auxiliar.push_back(monton.end());
-			marcar();
-		}else{
-			
-			
-		} 										
 
-		monton.pop_back(); //saco la arista elejida
+
+		sort(monton.begin, monton.end, comparar);
+
+		
+		while(noTermine){  //busco la arista
+			if(!(monton.end().nodo1.marcado) && !(monton.end().nodo2.marcado)){	//este caso solo le pasa al primer nodo..o deberia
+				
+				
+			}
+			if(!(monton.end().nodo1.marcado) && (monton.end().nodo2.marcado) ){
+				auxiliar.push_back(monton.end());
+				monton.end.nodo1.marcar();
+				noTermine = false;
+			}
+ 			if((monton.end().nodo1.marcado) && !(monton.end().nodo2.marcado)){
+		
+				auxiliar.push_back(monton.end());
+				monton.end.nodo2.marcar();
+				marcar();
+				noTermine = false; 
+		 	}									
+			monton.pop_back(); //saco la arista elejida, sea la q quiera o no
+		}
+
 
 
 
