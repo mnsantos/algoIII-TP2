@@ -26,11 +26,13 @@ void Grafo::mostrarGrafo(ostream& os){
 void Problema::mostrarResultado (vector<arista>& res,ostream& os){
 	int costo = 0;
 	for (int i=0;i<res.size();++i){
-		os << "(" <<res[i].e1+1<<","<<res[i].e2+1<<", p:"<<res[i].l<<") ";
 		costo+=res[i].l;
 	}
-	cout<<endl;
-	cout<<"Costo total: "<<costo<<endl;
+	os<<costo<<" "<<res.size();
+	for (int i=0;i<res.size();++i){
+		os<<" "<<res[i].e1+1<<" "<<res[i].e2+1;
+	}
+	os<<endl;
 }
 
 vector<arista> Problema::resolver(){
