@@ -1,0 +1,10 @@
+\subsection{Demostración}
+
+Diremos que un conjunto de aristas factible es $prometedor$ si se puede extender para producir no sólo una solución, sino una solución óptima para nuestro problema. Si un conjunto de aristas prometedor ya es solución entonces esta solución debe ser óptima.
+
+La demostración de la correctitud de algoritmo es por inducción sobre el número de aristas que hay en el conjunto T. Demostraremos que si T es prometedor en alguna fase del algoritmo, entonces sigue siendo prometedor al añandir una arista adicional. Cuando se detiene el agoritmo (T tiene C cantidad de aristas), T da una solución prometedora al problema y por lo tanto óptima.
+
+Caso base: el conjunto vacío T es prometedor
+Paso inductivo: supongamos que T es prometedor justo antes de que el algoritmo añada una nueva arista $e$ al conjunto T. T es un conjunto de aristas prometedor por hipótesis inductiva y $e$ es por definición una de las aristas más cortas que salen de B. Podemos asegurar que existe un $e$ que cumpla dichos requisitos ya que el enunciado asegura que todos los clientes pueden ser provistos por al menos una fábrica. Por lo tanto T $\cup$ $e$ también es prometedor.
+
+Como el conjunto T es prometedor en todas las fases del algoritmo también lo será cuando finalice ya que ofrece una solción óptima del problema.

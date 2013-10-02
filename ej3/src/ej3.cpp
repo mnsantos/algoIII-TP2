@@ -35,13 +35,13 @@ void Problema::mostrarResultado (vector<arista>& res,ostream& os){
 
 vector<arista> Problema::resolver(){
 	priority_queue<arista> cola;
+	arista v;
 	int e2; int l;
 	for (int i=0;i<_cantFabricas;++i){
 		for (int j=0;j<g.nodos[i].adyacentes.size();++j){
 			e2 = g.nodos[i].adyacentes[j].first;
 			l = g.nodos[i].adyacentes[j].second;
 			if (e2>=_cantFabricas){
-				arista v;
 				v.e1 = i; v.e2 = e2; v.l = l;
 				cola.push(v);
 			}
@@ -53,16 +53,16 @@ vector<arista> Problema::resolver(){
 vector<arista> Problema::prim(priority_queue<arista>& cola){
 	vector<bool> marcados (g._cantNodos);
 	arista u;
+	arista v;
 	vector<arista> res;
 	for (int i=0;i<_cantClientes;++i){
 		u = obtenerMin(marcados,cola);
 		res.push_back(u);
-		for (int i=0;i<g.nodos[u.e2].adyacentes.size();++i){
-			if (u.e1!=g.nodos[u.e2].adyacentes[i].first){
-				arista v;
+		for (int j=0;j<g.nodos[u.e2].adyacentes.size();++j){
+			if (u.e1!=g.nodos[u.e2].adyacentes[j].first){
 				v.e1 = u.e2;
-				v.e2 = g.nodos[u.e2].adyacentes[i].first;
-				v.l = g.nodos[u.e2].adyacentes[i].second;
+				v.e2 = g.nodos[u.e2].adyacentes[j].first;
+				v.l = g.nodos[u.e2].adyacentes[j].second;
 				cola.push(v);
 			}
 		}
