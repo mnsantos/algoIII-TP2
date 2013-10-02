@@ -34,7 +34,11 @@ Problema::Problema(istream& is){
 
 
 void Problema::mostrarResultado (ostream& os){
-}
+	
+	for(int i = 0; i < _cantServidores; i++){
+		os<< "(" << arbol[i].nodo1 << ", " << arbol[i].nodo2 << ", " << arbol[i].peso << ")" << endl;
+	}
+}	
 
 
 
@@ -42,13 +46,14 @@ void Problema::mostrarResultado (ostream& os){
 void Problema::pseudoPrim(){
 
 	vector<Enlace> monton; //para obtener aristas livianas en O(1)
-	vector<Enlace> arbol; //el AGM ...teoricamente
+	//vector<Enlace> arbol; //el AGM ...teoricamente
 	bool comparar (Enlace i, Enlace j){return (i.peso < j.peso);}  //de mayor a menor pues obtengo el ultimo en O(1)
-	
+	Servidor k = grafo[0][1].nodo1 ; //este ndo es el de indice 1, esta en toda la primer fila del grafo
+
 	for(int i = 0; i < _cantServidores; i++){  //hasta formar un arbol (n-1 veces)
 		
-		for(int j = i+1; j < _cantServidores;j++){  // a lo sumo n-1 veces
-			if(grafo[i][j].peso != -1){		//cargo el monton con aristas de nodo k
+		for(int j = k.indice+1; j < _cantServidores;j++){  // a lo sumo n-1 veces
+			if(grafo[k.indice][j].peso != -1){		//cargo el monton con aristas de nodo k, desde mitad sup de matriz
 				monton.push_back(grafo[i][j]);
 			}
 		}
@@ -58,39 +63,20 @@ void Problema::pseudoPrim(){
 
 		
 		while(noTermine){  //busco la arista
-			if(!(monton.end().nodo1.marcado) && !(monton.end().nodo2.marcado)){	//este caso solo le pasa al primer nodo..o deberia
-				
-				
-			}
-			if(!(monton.end().nodo1.marcado) && (monton.end().nodo2.marcado) ){
+			k.mark(); //marco el nodo 
+
+			if(!(monton.end().nodo1.marcado) && (monton.end().nodo2.marcado) ){ //
 				auxiliar.push_back(monton.end());
-				monton.end.nodo1.marcar();
+				k = monton.end();
 				noTermine = false;
 			}
  			if((monton.end().nodo1.marcado) && !(monton.end().nodo2.marcado)){
 		
 				auxiliar.push_back(monton.end());
-				monton.end.nodo2.marcar();
-				marcar();
+				k = monton.end();
 				noTermine = false; 
 		 	}									
 			monton.pop_back(); //saco la arista elejida, sea la q quiera o no
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-		
+		}		
 	}
 }
