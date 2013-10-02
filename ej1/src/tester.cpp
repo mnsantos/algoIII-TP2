@@ -30,7 +30,7 @@ int main()
 	}
 	unsigned long long int start=0, end=0, result=0;
 	
-	int cantRepeticiones= 700;
+	int cantRepeticiones= 300;
 	for(int i = 0;i<cantProblemas;i++){
 		start=0; end=0; result=0;
 		

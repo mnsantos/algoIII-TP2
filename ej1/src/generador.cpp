@@ -5,6 +5,8 @@ using namespace std;
 
 int main()
 {
+	srand (time(NULL));
+	
 	int cantidad_max_trabajos;
 	cin>> cantidad_max_trabajos;
 	
