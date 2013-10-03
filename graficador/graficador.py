@@ -35,5 +35,8 @@ else:
 			plot('plot '+file+' with linespoints title "Algoritmo", x*x*'+constante+' title "n*n"')
 		if(funcion=="nlogn"):
 			plot('plot '+file+' with linespoints title "Algoritmo", x*log(x)*'+constante+' title "n*log(n)"')
+		if(funcion=="n"):
+			plot('plot '+file+' with linespoints title "Algoritmo", x*'+constante+' title "n"')
+			
 	else:
 		plot('plot '+file+' with linespoints title "Algoritmo"')
