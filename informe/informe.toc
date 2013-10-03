@@ -13,6 +13,7 @@
 \contentsline {subsection}{\numberline {3.3}Complejidad}{11}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Demostraci\IeC {\'o}n}{12}{subsection.3.4}
 \contentsline {subsection}{\numberline {3.5}Casos de Prueba}{14}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Preguntas Adicionales}{15}{subsection.3.6}
 \contentsline {section}{\numberline {4}Ejercicio 3}{16}{section.4}
 \contentsline {subsection}{\numberline {4.1}Descripci\IeC {\'o}n}{16}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Implementaci\IeC {\'o}n y Complejidad}{16}{subsection.4.2}
