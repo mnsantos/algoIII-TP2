@@ -46,7 +46,14 @@ void Problema::mostrarResultado (ostream& os){
 }	
 
 
+
+
 bool comparar(Enlace i, Enlace j){return (i.peso < j.peso);} //de mayor a menor pues obtengo el ultimo en O(1)
+
+
+
+
+
 
 void Problema::pseudoPrim(){
 
