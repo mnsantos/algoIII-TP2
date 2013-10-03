@@ -28,10 +28,14 @@ int main()
 	}
 	unsigned long long int start=0, end=0, result=0;
 	for(int i=0;i<cantProblemas;i++){
-		MEDIR_TIEMPO_START(start);
-		problemas[i].resolver();
-		MEDIR_TIEMPO_STOP(end);
-		result=end-start;
+		for (int j=0;j<4;++j){
+			MEDIR_TIEMPO_START(start);
+			problemas[i].resolver();
+			MEDIR_TIEMPO_STOP(end);
+			result+=end-start;
+		}
+		result=result/4;
+		result=result/1000;
 		mostrarCiclos(cout,problemas[i]._cantRutas,result);
 	}
     return 0;
