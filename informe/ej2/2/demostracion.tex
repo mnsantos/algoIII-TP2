@@ -1,6 +1,6 @@
 \subsection{Demostración}
 
-\underline{Aclaración:} Al ser un árbol, sabemos que hay una única forma de llegar de un nodo A a uno B (pasando una vez por cada arista) por lo tanto si B tiene k ramas adyacentes, en el momento que llego a B (recorriendo siempre hacia un adyacente) sólo una de esas ramas puede estar explorada (en las demás aún no pude alcanzar ningún nodo). Si hubiese ya alcanzado algun nodo en una de las otras ramas, entonces si sigo recorriendo esa rama lo podría alcanzar nuevamente e ir desde allí hacia el nodo donde comencé generando un ciclo simple, lo cual es absurdo porque en un árbol no tengo ciclos simples.
+\underline{Aclaración:} Al ser un árbol, sabemos que hay una única forma de llegar de un nodo A a uno B (pasando una vez por cada arista) por lo tanto si B tiene k ramas adyacentes, en el momento que llego a B (recorriendo siempre hacia un adyacente) sólo una de esas ramas puede estar explorada (en las demás aún no pude alcanzar ningún nodo). Si hubiese ya alcanzado algún nodo en una de las otras ramas, entonces si sigo recorriendo esa rama lo podría alcanzar nuevamente e ir desde allí hacia el nodo donde comencé generando un ciclo simple, lo cual es absurdo porque en un árbol no tengo ciclos simples.
 \begin{center}
 \includegraphics[scale=0.5]{ej2/2/graficos/imagen02.jpg} 
 \end{center}
@@ -12,7 +12,10 @@ De P se desprenden k aristas (k < n) y aquellas que no son r1 y r2 sabemos que t
 \end{center}
 Ahora supongo que existe otro nodo P' que me resuelve el problema en menos pasos, entonces llegar al nodo P me va a llevar cierta cantidad de pasos j, con j $\geq$ 1, y en el momento de llegar a P al menos una de las dos ramas (r1 o r2) no puede haber sido atravesada en absoluto, es decir en alguna de las ramas ningún nodo fue alcanzado todavía (ver Aclaración del comienzo). 
 
-Por lo tanto al menos voy a necesitar recorrer alguna de ellas para completar el recorrido por todos los nodos del árbol, suponiendo que estoy en mi mejor caso y que me queda recorrer la rama r2 que tiene longitud menor o igual a r1, le sumo los pasos que me costó llegar a P nos queda: como j $\geq$ 1 y long(r2)=i $\Rightarrow$ i + j, además sé que i= h-1 o i=h $\Rightarrow$  h - 1 + j $\geq$ h ó h + j > h
+Por lo tanto al menos voy a necesitar recorrer alguna de ellas para completar el recorrido por todos los nodos del árbol, suponiendo que estoy en mi mejor caso y que me queda recorrer la rama r2 que tiene longitud menor o igual a r1, le sumo los pasos que me costó llegar a P nos queda:
+
+ como j $\geq$ 1 y long(r2)=i $\Rightarrow$ i + j, además sé que i= h-1 o i=h $\Rightarrow$  h - 1 + j $\geq$ h ó h + j > h
+
 Así la cantidad de pasos no puede ser menor si elijo P', a lo sumo es igual. Por lo tanto P está bien escogido, aunque no sea la única solución.
 
 

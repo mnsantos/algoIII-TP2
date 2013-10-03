@@ -13,11 +13,11 @@ Sabemos por el enunciado que la entrada que recibimos, es la salida del ejercici
 
 De lo primero se deduce que el grafo es conexo, no importa que par de nodos elija, existe un camino que los comunica.
 
-El segundo punto nos permite afirmar que no hay circuitos simples (camino que salga de un nodo y vuelva al mismo, pasando a lo sumo una vez por cada arista). Si existiera uno, podría, fijando un master llegar a un cierto nodo n (distinto del master) que pertenece al circuito simple, de dos formas diferentes. (GRAFICAR O EXPLICAR MEJOR)
+El segundo punto nos permite afirmar que no hay circuitos simples (camino que salga de un nodo y vuelva al mismo, pasando a lo sumo una vez por cada arista). Cada nodo dentro del circuito tendría al menos dos formas de conectarse con otro nodo cualquiera   entonces podría sacar una arista adyacente que pertenezca a uno de esos caminos y el grafo seguiría estando conexo.
 
 Entonces tenemos un grafo conexo sin ciclos simples, es decir un árbol. Ahora estamos más cerca de la resolución.
 
-Ahora como sabemos que es un árbol tenemos un único camino que conecta a cada nodo con el posible master. Y lo que buscamos es elegirlo de tal forma que se pueda llegar a todos los nodos en la menor cantidad de pasos posibles. (MINIMO DE LAS DISTANCIAS MAXIMAS PARA CADA MASTER, FORMALIZARLO).
+Ahora como sabemos que es un árbol tenemos un único camino que conecta a cada nodo con el posible master. Y lo que buscamos es elegirlo de tal forma que se pueda llegar a todos los nodos en la menor cantidad de pasos posibles. El nodo master tiene que cumplir que su distancia máxima\footnote{es la distancia máxima desde el nodo hacia todos los demás mediante caminos simples} sea la mínima de entre todos los nodos.
 
 Encontrar este nodo mediante la definición de arriba puede resultar muy costoso, ya que deberíamos calcular la máxima distancia a todos los nodos desde cada nodo, que nos conduce a una complejidad cuadrática.
 
@@ -44,7 +44,7 @@ Para implementar el algoritmo utilizamos lo siguiente:
 
  Suponiendo que ya tenemos el arreglo de n nodos, cada uno en la posición que le corresponde según el número, con la información de sus adyacentes ya cargada, pasamos a ver el pseudocódigo del algoritmo recursivo y luego del que busca el master.
 
- *Nota*: Dentro del algoritmo recursivo la función ActualizarMaximos actualiza los valores de las dos ramas más largas, y hacia donde está la rama más larga.
+ \underline{*Nota*}: Dentro del algoritmo recursivo la función ActualizarMaximos actualiza los valores de las dos ramas más largas, y hacia donde está la rama más larga.
  Después del ciclo se usa una función llamada ActualizarArbol que actualiza los datos de la lista de nodos, para el nodo en el que se encuentra (dos ramas largas, suma de ramas y hacia donde va la rama más larga).
  
 \begin{algorithm}
@@ -56,7 +56,7 @@ Para implementar el algoritmo utilizamos lo siguiente:
 
 \While{$QuedanHijos(Arbol[nroNodo])$}\Comment{cicla mientras todavía queden adyacentes por recorrer} 
 	
-	\State{$ hijo \gets ObtenerUnHijo(Arbol[nroNodo]$} \Comment { toma un nodo adyacente y lo guarda en Hijo}
+	\State{$ hijo \gets ObtenerUnHijo(Arbol[nroNodo])$} \Comment { toma un nodo adyacente y lo guarda en Hijo}
 	
 	\If{$ hijo != NroPadre$}
 		\State {$ rama = CalcularRamaLarga( hijo, nroNodo) $} \Comment {llamado recursivo}
@@ -79,7 +79,7 @@ Para implementar el algoritmo utilizamos lo siguiente:
 \State{$nodo \gets Max\_Suma(Arbol)$} \Comment{recorre arbol, buscando el nodo con suma de ramas máxima}
 \State{$ r1 = Arbol[nodo].ramaMax1$} \Comment {en r1 y r2 tengo las longitudes de las ramas más largas del nodo}
 \State{$ r2 = Arbol[nodo].ramaMax2$}
-	\While{r1 != r2 && (r1 -1) != r2} \Comment{cicla mientras la diferencia entre r1 y r2 sea mayor a 1}
+	\While{r1 != r2 AND (r1 -1) != r2} \Comment{cicla mientras la diferencia entre r1 y r2 sea mayor a 1}
 	\State{$ nodo = arbol[nodo].nodoRamaLarga$} \Comment{me muevo hacia el nodo con la rama más larga}
 	\State{$ r1--$} \Comment{siempre me muevo hacia la rama de r1}
 	\State{$ r2++$}

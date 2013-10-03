@@ -25,13 +25,6 @@ Problema::Problema(istream& is){
 		
 	}
 
-		
-			
-	
-		
-		
-		
-	
 }
 
 void Problema::mostrarResultado (ostream& os){
@@ -84,7 +77,7 @@ int Problema::recursion(int nroNodo, int idPadre){
 	int rama1=0, rama2=0, rama=0, nodo_rama1=0;  //inicializo las variables
 	
 	
-	for (int i=0; i < arbol[nroNodo].indicesHijos.size(); i++){
+	for (int i=0; i < arbol[nroNodo].indicesHijos.size(); i++){//recorro los hijos del nodo actual
 		int hijo= arbol[nroNodo].indicesHijos[i]; //levanto el nodo hijo que uso para calcular en cada iteracion, hasta que no quedan mas hijos por ver
 		
 		if(hijo != idPadre){ //tengo que ver que no vuelva hacia el padre, pq en indicesHijos guardo todos los nodos que se conectan
