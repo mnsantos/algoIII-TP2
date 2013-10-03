@@ -26,7 +26,7 @@ else:
 	output = '\''+output+'\''
 	plot("set terminal png size 1024,768")
 	plot('set output '+output)
-	plot('set ylabel "Ciclos"')
+	plot('set ylabel "Miles de ciclos"')
 	plot('set xlabel "n"')
 	if (len(sys.argv)==5):
 		funcion = str(sys.argv[3])
