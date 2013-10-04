@@ -1,10 +1,50 @@
 \subsection{Complejidad}
 
-Para calcular la complejidad, iremos paso por paso analizando el algoritmo:
+Para calcular la complejidad, iremos paso por paso analizando nuestra implementación del algoritmo. Algunas cosas a destacar son; una arista es (nodo, nodo, int peso). La cola es una cola de prioridad, con lo cual se obtiene el menor elemento en O(1).
+
+
+Analizamos primero como obtener de una cola de prioridad de aristas la de peso minimo, para luego concluir que la complejidad de este procedimiento es O(n.log(n))
+
+\begin{algorithm}[H]
+\caption{aristaLiviana}\label{ej2}
+\begin{algorithmic}[1]
+\Procedure{aristaLiviana}{lista de enlaces}
+	\While{no encontre el minimo}
+		\State obtener enlace tope y sacarlo de la cola 
+		\If{enlace con extremo marcado y otro no marcado}
+			\State marcar el extremo q no estaba marcado y retornar enlace
+		\EndIf
+	\EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 
 \begin{itemize}
-\item Mientras $B \nop V$, es un ciclo de n iteraciones, pues n es la cantidad de servidores/nodos. O(n)
-\item Para buscar la arista de longitud minima, se usa un heap y para chequear que un extremo de la arista elegida este en B y y el otro extremo en V-B, simplemente se marca el nodo como marcado. O(1))
-\item Al usar 
-\end{itemize}  %todavia no termino
+\item Encontrar una arista de peso minimo esta acotado por O(1), ya que solo implica sacar un elemento del tope.
+\item Al sacar el elemento de la cola, los elementos restantes deben re-ordenarse, esto es O(log(n))
+\item Marcar un nodo es cambiar un atributo booleano del mismo, O(1)
+\item Puede ocurrir que la arista del tope tenga sus dos extremos marcados, en tal caso se la remueve y se vuelve a proceder como mucho n veces, esto es O(n) iteraciones
+\end{itemize}  
+
+
+Ahora veamos la implementacion de Prim, cuya complejidad es O().
+
+\begin{algorithm}[H]
+\caption{NuestroPrim}\label{ej2}
+\begin{algorithmic}[1]
+\Procedure{Prim}{$G=(V,E)$}
+	\State enlaces $\shortleftarrow$ vacia 
+	\State marcar 1er nodo
+	\State cola $\shortleftarrow$ adyacentes de nodo1
+	\While{enlaces $\neq $ n-1}
+		\State (u,v) = aristaLiviana (cola)
+		\State agregar a enlaces (u,v)
+		\State agregar a cola, adyacentes de nodo no marcado de (u,v)
+	\EndWhile
+	\State devolver enlaces
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+

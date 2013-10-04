@@ -1,6 +1,7 @@
 \subsection{Pseudocodigo}
 
 Siendo representados los servidores por nodos y los enlaces por aristas, para resolver el problema planteado se busca el AGM de los datos de entrada. En nuestro caso, utilizamos el algoritmo Prim.
+Sabemos que, para poder transmitir a todos los servidores la misma informacion, debemos devolver como minimo n - 1 aristas y que el resultado sea un subgrafo conexo. Al buscar el costo mínimo total, se debe minimizar la sumatoria de cada costo de las aristas que se seleccionan, por lo tanto deben ser exactamente n - 1 aristas (esto sabiendo que no hay pesos negativos). 
 
 
 \begin{algorithm}[H]
