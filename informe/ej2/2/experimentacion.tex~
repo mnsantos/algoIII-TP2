@@ -11,7 +11,8 @@ Gráfico de casos random
 \begin{center}
 \includegraphics[scale=0.4]{ej2/2/graficos/complejidadRandom.png} 
 \end{center}
-\newpage
+
+
 Gráfico de árboles de una rama
 \begin{center}
 \includegraphics[scale=0.4]{ej2/2/graficos/complejidadRama.png} 
