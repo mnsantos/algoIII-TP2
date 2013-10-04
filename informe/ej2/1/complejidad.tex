@@ -38,8 +38,8 @@ Ahora veamos la implementacion de Prim, cuya complejidad es O().
 	\State marcar 1er nodo
 	\State cola $\shortleftarrow$ adyacentes de nodo1
 	\While{enlaces $\neq $ n-1}
-		\State (u,v) = aristaLiviana (cola)
-		\State agregar a enlaces (u,v)
+		\State e = aristaLiviana (cola)
+		\State agregar a enlaces e
 		\State agregar a cola, adyacentes de nodo no marcado de (u,v)
 	\EndWhile
 	\State devolver enlaces
@@ -48,3 +48,8 @@ Ahora veamos la implementacion de Prim, cuya complejidad es O().
 \end{algorithm}
 
 
+\begin{itemize}
+\item Las lineas 2, 3, 7 y 8 tienen complejidad cte.
+\item En la linea 4, un nodo puede tener como mucho n-1 adyacentes, con lo cual obtenerlos y agregarlos (para un elemento es log(n)) puede tener una complejidad de O(n.log(n))
+\item En la linea 5, se realizan n iteraciones de operaciones de complejidad O(1) y O(n.log(n))  
+\end{itemize}
