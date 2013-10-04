@@ -1,0 +1,24 @@
+\subsection{Pseudocodigo}
+
+Siendo representados los servidores por nodos y los enlaces por aristas, para resolver el problema planteado se busca el AGM de los datos de entrada. En nuestro caso, utilizamos el algoritmo Prim.
+
+
+\begin{algorithm}[H]
+\caption{Prim}\label{ej1}
+\begin{algorithmic}[1]
+\Procedure{Prim}{$G=(V,E)$}
+	\State T  $\shortleftarrow$ $\emptyset$
+	\State B $\shortleftarrow$ $\{$un nodo arbitrario de V$\}$
+	\While{$B \neq V$}
+		\State buscar $e=\{u,v\}$ de longitud mínima tal que u $\in$ B y v $\in$ V-B
+		\State T $\cup$ $\{e\}$
+		\State B $\cup$ $\{v\}$
+	\EndWhile
+	\State return T
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
