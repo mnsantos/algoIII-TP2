@@ -53,5 +53,3 @@ Ahora veamos la implementacion de Prim, cuya complejidad es O(mlog(n)).
 \item En la linea 4, un nodo puede tener como mucho n-1 adyacentes, con lo cual obtenerlos y agregarlos (para un elemento es log(n)) puede tener una complejidad de O(n.log(n)).
 \item Para medir la complejidad del while tendremos en cuenta el numero de llamados a aristaLiviana y a agregar a cola adyacentes de nodo no marcado. Para el primero sabemos que en las n-1 iteraciones del while como mucho haremos m pops cuyo costo es O(log(m))$\subset$O(log(n)) ya que no popearemos más de la cantidad de aristas presentes en el grafo. Para el segundo también recorreremos en las n-1 iteraciones todas las aristas del grafo y las pushearemos con un costo de O(log(m))$\subset$O(log(n)). Por lo tanto la compjeidad del while es O(mlog(n)) + O(mlog(n)) = O(mlog(n)).
 \end{itemize}
-
-Entonces la complejidad total del algoritmo es O(mlog(n)) que es mejor de lo que pedía el enunciado.

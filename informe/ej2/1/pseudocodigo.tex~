@@ -24,7 +24,7 @@ Sabemos que, para poder transmitir a todos los servidores la misma informacion, 
 Nuestro algorítmo es Prim, las particularidades del mismo en la implementación son las siguientes:
 
 \begin{itemize}
-\item En vez de empezar en un nodo arbitrario, empezamos siempre por el primer nodo cargado.
+\item En vez de empesar en un nodo arbitrario, empezamos siempre por el primer nodo cargado.
 \item En lugar de conjuntos, utilizamos vectores.
 \end{itemize}
 
