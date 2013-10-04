@@ -4,7 +4,7 @@ Siendo representados los servidores por nodos y los enlaces por aristas, para re
 
 
 \begin{algorithm}[H]
-\caption{Prim}\label{ej1}
+\caption{Prim}\label{ej2}
 \begin{algorithmic}[1]
 \Procedure{Prim}{$G=(V,E)$}
 	\State T  $\shortleftarrow$ $\emptyset$
@@ -20,5 +20,10 @@ Siendo representados los servidores por nodos y los enlaces por aristas, para re
 \end{algorithm}
 
 
+Nuestro algorítmo es Prim, las particularidades del mismo en la implementación son las siguientes:
 
+\begin{itemize}
+\item En vez de empesar en un nodo arbitrario, empezamos siempre por el primer nodo cargado.
+\item En lugar de conjuntos, utilizamos vectores.
+\end{itemize}
 
