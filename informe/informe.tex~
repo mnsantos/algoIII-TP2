@@ -145,6 +145,7 @@
 \input{ej2/1/pseudocodigo.tex}
 \input{ej2/1/demostracion.tex}
 \input{ej2/1/complejidad.tex}
+\input{ej2/1/casosPrueba.tex}
 %\input{ej2/1/codigo_relevante.tex}
 \newpage
 

@@ -20,7 +20,7 @@ Para verificar el correcto funcionamiento del algoritmo tomamos distintas instan
  \label{}
 \end{figure}
 
-Utilizamos estos casos de prueba para observar que efectivamente formaba un bosque de ároles AGM cuando la solución lo requería y que además no usara aristas que conectaran dos fábricas entre si. Las soluciones obtenidas fueron:
+Utilizamos estos casos de prueba para observar que efectivamente formaba bosques de AGM cuando la solución lo requería y que además no usara aristas que conectaran dos fábricas entre si. Las soluciones obtenidas fueron:
 
 \begin{figure}[H]
  \centering

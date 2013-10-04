@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.7.16)  4 OCT 2013 17:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.7.16)  4 OCT 2013 18:39
 entering extended mode
  %&-line parsing enabled.
 **informe.tex
@@ -313,7 +313,7 @@ File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 (/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/home/fzanollo/texmf/tex/latex/aed2-tad/aed2-tad.sty
+(/home/mnsantos/texmf/tex/latex/aed2-tad/aed2-tad.sty
 Package: aed2-tad 2011/04/04 - Para especificar TADs en formato AED2
 
 (/usr/share/texmf-texlive/tex/latex/tools/calc.sty
@@ -329,7 +329,7 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Ccount=\count97
 \calc@Cskip=\skip45
 )
-(/home/fzanollo/texmf/tex/latex/aed2-tokenizer/aed2-tokenizer.sty
+(/home/mnsantos/texmf/tex/latex/aed2-tokenizer/aed2-tokenizer.sty
 Package: aed2-tokenizer 2010/03/12
 )
 Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
@@ -353,7 +353,7 @@ Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
 \tadAxioma@lenEquiv=\skip62
 \tadAxioma@lenDerecha=\skip63
 )
-(/home/fzanollo/texmf/tex/latex/aed2-symb/aed2-symb.sty
+(/home/mnsantos/texmf/tex/latex/aed2-symb/aed2-symb.sty
 Package: aed2-symb 2004/04/17 - Para componer simbolitos frecuentemente usados 
 en AED2
 
@@ -426,14 +426,14 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 )))
-(/home/fzanollo/texmf/tex/latex/aed2-itef/aed2-itef.sty
+(/home/mnsantos/texmf/tex/latex/aed2-itef/aed2-itef.sty
 Package: aed2-itef 2010/03/16 - if-then-else-fi en lenguaje de TADs.
 
 Cargando package 'itef' (2010/03/16)
 \itefIndentacion=\skip67
 \itef@widthUnaLinea=\skip68
 \itef@linewidth=\skip69
-) (/home/fzanollo/texmf/tex/latex/caratula/caratula.sty
+) (/home/mnsantos/texmf/tex/latex/caratula/caratula.sty
 Package: caratula 2003/4/13 v0.1 Para componer caratulas de TPs del DC
 
 Cargando package 'caratula' v0.2 (21/4/2003)
@@ -665,6 +665,21 @@ LaTeX Warning: Label `ej2' multiply defined.
 LaTeX Warning: Label `ej2' multiply defined.
 
 
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
 LaTeX Warning: Label `pic-a' multiply defined.
 
 
@@ -672,6 +687,9 @@ LaTeX Warning: Label `ej1' multiply defined.
 
 
 LaTeX Warning: Label `ej1' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
 
 
 LaTeX Warning: Label `' multiply defined.
@@ -867,7 +885,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-<ej1/descripcion1.png, id=153, 402.00188pt x 136.34444pt>
+<ej1/descripcion1.png, id=158, 402.00188pt x 136.34444pt>
 File: ej1/descripcion1.png Graphic file (type png)
 
 <use ej1/descripcion1.png>
@@ -875,7 +893,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-<ej1/descripcion2.png, id=154, 407.27156pt x 335.75438pt>
+<ej1/descripcion2.png, id=159, 407.27156pt x 335.75438pt>
 File: ej1/descripcion2.png Graphic file (type png)
 
 <use ej1/descripcion2.png>) [3 <./ej1/descripcion1.png> <./ej1/descripcion2.png
@@ -907,7 +925,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-<ej1/complejidad1.png, id=161, 402.00188pt x 194.22563pt>
+<ej1/complejidad1.png, id=166, 402.00188pt x 194.22563pt>
 File: ej1/complejidad1.png Graphic file (type png)
 
 <use ej1/complejidad1.png>
@@ -935,7 +953,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-<ej1/complejidad2.png, id=179, 402.00188pt x 188.20313pt>
+<ej1/complejidad2.png, id=184, 402.00188pt x 188.20313pt>
 File: ej1/complejidad2.png Graphic file (type png)
 
 <use ej1/complejidad2.png>
@@ -1003,17 +1021,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--1
 
  []
 
-<ej1/caso1.png, id=195, 113.99289pt x 54.38876pt>
+<ej1/caso1.png, id=200, 113.99289pt x 54.38876pt>
 File: ej1/caso1.png Graphic file (type png)
  <use ej1/caso1.png>
-<ej1/caso2.png, id=196, 287.57437pt x 134.10928pt>
+<ej1/caso2.png, id=201, 287.57437pt x 134.10928pt>
 File: ej1/caso2.png Graphic file (type png)
  <use ej1/caso2.png>
 Underfull \hbox (badness 10000) in paragraph at lines 12--16
 
  []
 
-[6 <./ej1/caso1.png>] <ej1/caso3.png, id=204, 287.57437pt x 134.10928pt>
+[6 <./ej1/caso1.png>] <ej1/caso3.png, id=209, 287.57437pt x 134.10928pt>
 File: ej1/caso3.png Graphic file (type png)
 
 <use ej1/caso3.png>
@@ -1021,7 +1039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--21
 
  []
 
-<ej1/caso4.png, id=205, 287.57437pt x 134.10928pt>
+<ej1/caso4.png, id=210, 287.57437pt x 134.10928pt>
 File: ej1/caso4.png Graphic file (type png)
  <use ej1/caso4.png>
 Underfull \hbox (badness 10000) in paragraph at lines 22--26
@@ -1035,7 +1053,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--137
 
 [7 <./ej1/caso2.png> <./ej1/caso3.png> <./ej1/caso4.png>]
 (./ej1/experimentacion.tex
-<../graficador/graficoAleatoriosEj1.png, id=212, 1027.84pt x 770.88pt>
+<../graficador/graficoAleatoriosEj1.png, id=217, 1027.84pt x 770.88pt>
 File: ../graficador/graficoAleatoriosEj1.png Graphic file (type png)
 
 <use ../graficador/graficoAleatoriosEj1.png>
@@ -1044,137 +1062,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
  []
 
 ) [8 <../graficador/graficoAleatoriosEj1.png (PNG copy)>]
-(./ej2/1/descripcion.tex <ej2/1/Img1.pdf, id=219, 327.2225pt x 327.2225pt>
+(./ej2/1/descripcion.tex <ej2/1/Img1.pdf, id=224, 327.2225pt x 327.2225pt>
 File: ej2/1/Img1.pdf Graphic file (type pdf)
 
 <use ej2/1/Img1.pdf>) (./ej2/1/pseudocodigo.tex [9 <./ej2/1/Img1.pdf>])
-(./ej2/1/demostracion.tex) (./ej2/1/complejidad.tex [10]) [11]
-(./ej2/2/descripcion.tex
-<ej2/2/graficos/imagen01.jpg, id=243, 597.73312pt x 650.43pt>
+(./ej2/1/demostracion.tex) (./ej2/1/complejidad.tex [10])
+(./ej2/1/casosPrueba.tex
+<ej3/imgs/graph_test1.png, id=243, 796.47563pt x 597.73312pt>
+File: ej3/imgs/graph_test1.png Graphic file (type png)
+
+<use ej3/imgs/graph_test1.png>
+<ej3/imgs/graph_test4.png, id=244, 796.47563pt x 597.73312pt>
+File: ej3/imgs/graph_test4.png Graphic file (type png)
+
+<use ej3/imgs/graph_test4.png>
+<ej2/1/imgs/graph_test1_sol.png, id=245, 796.47563pt x 597.73312pt>
+File: ej2/1/imgs/graph_test1_sol.png Graphic file (type png)
+
+<use ej2/1/imgs/graph_test1_sol.png>
+<ej2/1/imgs/graph_test4_sol.png, id=246, 796.47563pt x 597.73312pt>
+File: ej2/1/imgs/graph_test4_sol.png Graphic file (type png)
+
+<use ej2/1/imgs/graph_test4_sol.png> [11 <./ej3/imgs/graph_test1.png> <./ej3/im
+gs/graph_test4.png>]) [12 <./ej2/1/imgs/graph_test1_sol.png> <./ej2/1/imgs/grap
+h_test4_sol.png>] (./ej2/2/descripcion.tex
+<ej2/2/graficos/imagen01.jpg, id=259, 597.73312pt x 650.43pt>
 File: ej2/2/graficos/imagen01.jpg Graphic file (type jpg)
 
-<use ej2/2/graficos/imagen01.jpg>) (./ej2/2/pseudocodigo.tex [12 <./ej2/2/grafi
-cos/imagen01.jpg>]) (./ej2/2/complejidad.tex [13]
-<ej2/2/graficos/imagen04.jpg, id=259, 992.95969pt x 274.77657pt>
+<use ej2/2/graficos/imagen01.jpg>) (./ej2/2/pseudocodigo.tex [13 <./ej2/2/grafi
+cos/imagen01.jpg>]) (./ej2/2/complejidad.tex [14]
+<ej2/2/graficos/imagen04.jpg, id=275, 992.95969pt x 274.77657pt>
 File: ej2/2/graficos/imagen04.jpg Graphic file (type jpg)
 
-<use ej2/2/graficos/imagen04.jpg> [14 <./ej2/2/graficos/imagen04.jpg>])
+<use ej2/2/graficos/imagen04.jpg> [15 <./ej2/2/graficos/imagen04.jpg>])
 (./ej2/2/demostracion.tex
-<ej2/2/graficos/imagen02.jpg, id=266, 597.73312pt x 425.33907pt>
+<ej2/2/graficos/imagen02.jpg, id=282, 597.73312pt x 425.33907pt>
 File: ej2/2/graficos/imagen02.jpg Graphic file (type jpg)
 
-<use ej2/2/graficos/imagen02.jpg> [15]
-<ej2/2/graficos/imagen03.jpg, id=271, 597.73312pt x 368.1253pt>
+<use ej2/2/graficos/imagen02.jpg> [16]
+<ej2/2/graficos/imagen03.jpg, id=287, 597.73312pt x 368.1253pt>
 File: ej2/2/graficos/imagen03.jpg Graphic file (type jpg)
 
-<use ej2/2/graficos/imagen03.jpg> [16 <./ej2/2/graficos/imagen02.jpg> <./ej2/2/
+<use ej2/2/graficos/imagen03.jpg> [17 <./ej2/2/graficos/imagen02.jpg> <./ej2/2/
 graficos/imagen03.jpg>]) (./ej2/2/casosPrueba.tex
-<ej2/2/graficos/imagen05.jpg, id=276, 1010.27437pt x 689.57625pt>
+<ej2/2/graficos/imagen05.jpg, id=292, 1010.27437pt x 689.57625pt>
 File: ej2/2/graficos/imagen05.jpg Graphic file (type jpg)
 
 <use ej2/2/graficos/imagen05.jpg>
-<ej2/2/graficos/imagen06.jpg, id=277, 283.0575pt x 208.52907pt>
+<ej2/2/graficos/imagen06.jpg, id=293, 283.0575pt x 208.52907pt>
 File: ej2/2/graficos/imagen06.jpg Graphic file (type jpg)
 
-<use ej2/2/graficos/imagen06.jpg> [17 <./ej2/2/graficos/imagen05.jpg>])
+<use ej2/2/graficos/imagen06.jpg> [18 <./ej2/2/graficos/imagen05.jpg>])
 (./ej2/2/experimentacion.tex
-<ej2/2/graficos/complejidadRandom.png, id=282, 1027.84pt x 770.88pt>
+<ej2/2/graficos/complejidadRandom.png, id=298, 1027.84pt x 770.88pt>
 File: ej2/2/graficos/complejidadRandom.png Graphic file (type png)
 
-<use ej2/2/graficos/complejidadRandom.png> [18 <./ej2/2/graficos/imagen06.jpg> 
+<use ej2/2/graficos/complejidadRandom.png> [19 <./ej2/2/graficos/imagen06.jpg> 
 <./ej2/2/graficos/complejidadRandom.png (PNG copy)>]
-<ej2/2/graficos/complejidadRama.png, id=288, 1027.84pt x 770.88pt>
+<ej2/2/graficos/complejidadRama.png, id=305, 1027.84pt x 770.88pt>
 File: ej2/2/graficos/complejidadRama.png Graphic file (type png)
 
 <use ej2/2/graficos/complejidadRama.png>
-<ej2/2/graficos/complejidadPomp.png, id=289, 1027.84pt x 770.88pt>
+<ej2/2/graficos/complejidadPomp.png, id=306, 1027.84pt x 770.88pt>
 File: ej2/2/graficos/complejidadPomp.png Graphic file (type png)
 
-<use ej2/2/graficos/complejidadPomp.png>) (./ej2/2/preguntas.tex [19 <./ej2/2/g
+<use ej2/2/graficos/complejidadPomp.png>) (./ej2/2/preguntas.tex [20 <./ej2/2/g
 raficos/complejidadRama.png (PNG copy)> <./ej2/2/graficos/complejidadPomp.png (
-PNG copy)>] <ej2/2/graficos/imagen07.jpg, id=297, 1246.6575pt x 301.125pt>
+PNG copy)>] <ej2/2/graficos/imagen07.jpg, id=313, 1246.6575pt x 301.125pt>
 File: ej2/2/graficos/imagen07.jpg Graphic file (type jpg)
 
-<use ej2/2/graficos/imagen07.jpg>) [20 <./ej2/2/graficos/imagen07.jpg>]
+<use ej2/2/graficos/imagen07.jpg>) [21 <./ej2/2/graficos/imagen07.jpg>]
 (./ej3/descripcion.tex
-<ej3/imgs/graph1.png, id=302, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph1.png, id=318, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph1.png Graphic file (type png)
 
 <use ej3/imgs/graph1.png>
-<ej3/imgs/graph1_sol.png, id=303, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph1_sol.png, id=319, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph1_sol.png Graphic file (type png)
 
-<use ej3/imgs/graph1_sol.png>) (./ej3/pseudocodigo.tex [21 <./ej3/imgs/graph1.p
+<use ej3/imgs/graph1_sol.png>) (./ej3/pseudocodigo.tex [22 <./ej3/imgs/graph1.p
 ng> <./ej3/imgs/graph1_sol.png>]
-<ej3/imgs/graph1_1era.png, id=310, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph1_1era.png, id=326, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph1_1era.png Graphic file (type png)
 
 <use ej3/imgs/graph1_1era.png>
-<ej3/imgs/graph1_2da.png, id=311, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph1_2da.png, id=327, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph1_2da.png Graphic file (type png)
 
 <use ej3/imgs/graph1_2da.png>
-<ej3/imgs/graph1_3era.png, id=312, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph1_3era.png, id=328, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph1_3era.png Graphic file (type png)
 
 <use ej3/imgs/graph1_3era.png>
-<ej3/imgs/graph1_4ta.png, id=313, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph1_4ta.png, id=329, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph1_4ta.png Graphic file (type png)
 
 <use ej3/imgs/graph1_4ta.png>
 File: ej3/imgs/graph1_sol.png Graphic file (type png)
- <use ej3/imgs/graph1_sol.png> [22])
-(./ej3/complejidad.tex [23 <./ej3/imgs/graph1_1era.png> <./ej3/imgs/graph1_2da.
+ <use ej3/imgs/graph1_sol.png> [23])
+(./ej3/complejidad.tex [24 <./ej3/imgs/graph1_1era.png> <./ej3/imgs/graph1_2da.
 png> <./ej3/imgs/graph1_3era.png> <./ej3/imgs/graph1_4ta.png>])
-(./ej3/demostracion.tex [24]) (./ej3/casosPrueba.tex
-<ej3/imgs/graph_test1.png, id=332, 796.47563pt x 597.73312pt>
+(./ej3/demostracion.tex [25]) (./ej3/casosPrueba.tex
 File: ej3/imgs/graph_test1.png Graphic file (type png)
 
 <use ej3/imgs/graph_test1.png>
-<ej3/imgs/graph_test2.png, id=333, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph_test2.png, id=348, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test2.png Graphic file (type png)
 
 <use ej3/imgs/graph_test2.png>
-<ej3/imgs/graph_test3.png, id=334, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph_test3.png, id=349, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test3.png Graphic file (type png)
 
 <use ej3/imgs/graph_test3.png>
-<ej3/imgs/graph_test4.png, id=335, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test4.png Graphic file (type png)
-
-<use ej3/imgs/graph_test4.png>
-<ej3/imgs/graph_test1_sol.png, id=336, 796.47563pt x 597.73312pt>
+ <use ej3/imgs/graph_test4.png>
+<ej3/imgs/graph_test1_sol.png, id=350, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test1_sol.png Graphic file (type png)
 
 <use ej3/imgs/graph_test1_sol.png>
-<ej3/imgs/graph_test2_sol.png, id=337, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph_test2_sol.png, id=351, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test2_sol.png Graphic file (type png)
 
 <use ej3/imgs/graph_test2_sol.png>
-<ej3/imgs/graph_test3_sol.png, id=338, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph_test3_sol.png, id=352, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test3_sol.png Graphic file (type png)
 
 <use ej3/imgs/graph_test3_sol.png>
-<ej3/imgs/graph_test4_sol.png, id=339, 796.47563pt x 597.73312pt>
+<ej3/imgs/graph_test4_sol.png, id=353, 796.47563pt x 597.73312pt>
 File: ej3/imgs/graph_test4_sol.png Graphic file (type png)
 
-<use ej3/imgs/graph_test4_sol.png> [25 <./ej3/imgs/graph_test1.png> <./ej3/imgs
-/graph_test2.png> <./ej3/imgs/graph_test3.png> <./ej3/imgs/graph_test4.png>])
-(./ej3/tests.tex <ej3/imgs/complejidad.png, id=346, 1027.84pt x 770.88pt>
+<use ej3/imgs/graph_test4_sol.png> [26 <./ej3/imgs/graph_test2.png> <./ej3/imgs
+/graph_test3.png>]) (./ej3/tests.tex
+<ej3/imgs/complejidad.png, id=359, 1027.84pt x 770.88pt>
 File: ej3/imgs/complejidad.png Graphic file (type png)
 
-<use ej3/imgs/complejidad.png> [26 <./ej3/imgs/graph_test1_sol.png> <./ej3/imgs
+<use ej3/imgs/complejidad.png> [27 <./ej3/imgs/graph_test1_sol.png> <./ej3/imgs
 /graph_test2_sol.png> <./ej3/imgs/graph_test3_sol.png> <./ej3/imgs/graph_test4_
-sol.png>]) [27 <./ej3/imgs/complejidad.png (PNG copy)>] (./informe.aux)
+sol.png>]) [28 <./ej3/imgs/complejidad.png (PNG copy)>] (./informe.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9518 strings out of 494999
- 135785 string characters out of 1180816
- 230668 words of memory out of 3000000
- 12311 multiletter control sequences out of 15000+50000
+ 9534 strings out of 494999
+ 136195 string characters out of 1180816
+ 229668 words of memory out of 3000000
+ 12320 multiletter control sequences out of 15000+50000
  21127 words of font info for 55 fonts, out of 3000000 for 9000
  54 hyphenation exceptions out of 8191
  53i,12n,97p,942b,517s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1197,9 +1230,9 @@ fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sftt1000.pfb></usr/share/texmf-texlive/fonts/type1/hoekwater/stmaryrd/
 stmary10.pfb>
-Output written on informe.pdf (27 pages, 1863168 bytes).
+Output written on informe.pdf (28 pages, 1977069 bytes).
 PDF statistics:
- 447 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 392 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 461 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
+ 410 words of extra memory for PDF output out of 10000 (max. 10000000)
 
