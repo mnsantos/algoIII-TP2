@@ -4,9 +4,11 @@ using namespace std;
 
 Problema::Problema(istream& is){
 	
-	is>> cantNodos;
+	is>> costo;
 	
-	is>> cantEnlaces; //el formato por ahora es: cant nodos, cantidad de enlaces, i1 f1, i2 f2, i3 f3 in fn, i y f son nodos
+	is>> cantNodos; //el formato por ahora es: costo, cant nodos, cant enlaces i1 f1, i2 f2, i3 f3 in fn, i y f son nodos
+	
+	is>> cantEnlaces; 
 	
 	arbol.resize(cantNodos+1); // el de la posicion cero no lo uso
 	
@@ -20,17 +22,19 @@ Problema::Problema(istream& is){
 		is>> primerNodo;
 		is>> segundoNodo;
 		
+		enlaces.push_back( make_pair(primerNodo, segundoNodo) ); //guardo los enlaces para dsp dar la salida pedida por enunciado
+		
 		arbol[primerNodo].indicesHijos.push_back (segundoNodo); //agrego a cada uno como hijo del otro, es bidireccional
 		arbol[segundoNodo].indicesHijos.push_back (primerNodo);
 		
 	}
-
 }
 
 void Problema::mostrarResultado (ostream& os){
-	os << master<< endl;
-	os << ram1 << " " << ram2 << " " << rama_larga1 << " " << nodoOriginal; //imprimo long de rama1 y 2, dsp el nodo hacia la rama mas larga y el nodo original (pertenece al camino mas largo pero no necesariamente es el centro)
-	
+	os<< costo << " " << master << " " << cantEnlaces;
+	for(int i=0; i < enlaces.size(); i++){
+		os<< " "<< enlaces[i].first << " " << enlaces[i].second;
+	}	
 }
 
 void Problema::resolver(){

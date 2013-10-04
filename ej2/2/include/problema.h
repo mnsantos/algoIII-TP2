@@ -34,6 +34,9 @@ struct Problema{
 	int cantEnlaces;
 	int master;
 	
+	int costo; //para combinar los problemas
+	vector< pair< int, int> > enlaces;
+	
 	vector <nodo> arbol; //arbol de conexiones
 	int ram1, ram2, rama_larga1, nodoOriginal; //son para verificar mas facil en la salida
 	
