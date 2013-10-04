@@ -22,10 +22,18 @@ Problema::Problema(istream& is){
 }
 
 void Problema::mostrarResultado (ostream& os){
-	os<<_cantServidores<<endl;
+	int costo=0;
+	for (int i=0;i<enlaces.size();++i){
+		costo+= enlaces[i].costo;
+	}
+	os<< costo << " ";
+	os<<_cantServidores << " ";
+	os<< enlaces.size() <<endl ;
+	
 	for (int i=0;i<enlaces.size();++i){
 		os<<enlaces[i].nodo1+1<<" "<<enlaces[i].nodo2+1<<endl;	
 	}
+	os<<"0";
 }	
 
 void Problema::resolver(){
