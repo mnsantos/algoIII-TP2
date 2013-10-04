@@ -1,0 +1,13 @@
+\subsection{Descripción}
+Se tienen n servidores interconectados mediante m enlaces. Los enlaces tienen un costo en función del tráfico que transmiten y todos los enlaces deben transmitir la misma información. El problema a resolver consiste en seleccionar aquellos enlaces que permitan distribuir la información a los n nodos con costo total mínimo.
+
+
+Veamos algunos ejemplos:
+
+
+El siguiente grafo, tiene como solución el árbol generador en rojo con peso total 38.
+
+\begin{center}
+\includegraphics{ej2/1/Img1.pdf} 
+\end{center}
+
